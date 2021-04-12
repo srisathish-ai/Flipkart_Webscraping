@@ -19,9 +19,13 @@ Totally this is web site has 4 pages. `Home`,`Mobiles`,`Laptops`,`Camera`.
 run the `requirement.txt` file for download required modules:
 
 ```
-pip install -r .\requirement.txt
-
+pip3 install -r requirement.txt
 ```
+or
+```
+pip install -r requirement.txt
+```
+
 ## Testing
 
 This project required the internet, meanwhile you are able to reach the `https://www.flipkart.com` page. 
@@ -34,4 +38,8 @@ Make sure python3 in the machine.
 
 ```
 python3 app.py
+```
+or
+```
+python app.py
 ```
