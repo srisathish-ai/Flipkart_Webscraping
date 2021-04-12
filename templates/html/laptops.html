@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Laptops {% endblock %}
+
+{% block top %} 
+Laptops
+{% endblock %}
+{% block active3 %}class="active"{% endblock%}
+{% block content %}
+<div>
+    <form action='/laptops' method='POST'>
+        <label>BRAND</label>
+        <input type='text' name="brand">
+        <label>PROCESSOR</label>
+        <select name= "lapprocessor">
+            <option value="All">All</option>
+            <option value="Core+i3">Core i3</option>
+            <option value="Core+i5">Core i5</option>
+            <option value="Core+i7">Core i7</option>
+            <option value="Core+i9">Core i9</option>
+            <option value="Ryzen+7+Quad+Core">Ryzen 7 Quad Core</option>
+            <option value="Ryzen+7+Octa+Core">Ryzen 7 Octa Core</option>
+            <option value="Ryzen+5+Quad+Core">Ryzen 5 Quad Core</option>
+            <option value="Ryzen+5+Hexa+Core">Ryzen 5 Hexa Core</option>
+            <option value="Ryzen+3+Dual+Core">Ryzen 3 Dual Core</option>
+            <option value="Celeron+Dual+Core">Celeron Dual Core</option>
+            <option value="APU+Dual+Core+A9">APU Dual Core A9</option>
+            <option value="APU+Dual+Core+A6">APU Dual Core A6</option>
+            <option value="Athlon+Dual+Core">Athlon Dual Core</option>
+            <option value="Dual+Core">Dual Core</option>
+            <option value="MT8183">MT8183</option>
+            <option value="Pentium+Gold">Pentium Gold</option>
+        </select><br/>
+        <label>Budget : Min/Max</label>
+        <select name= "minbudget">
+            <option value="Min">Min</option>
+            <option value="20000">20000</option>
+            <option value="30000">30000</option>
+            <option value="40000">40000</option>
+            <option value="50000">50000</option>
+            <option value="60000">60000</option>
+            <option value="70000">70000</option>
+            
+        </select>
+        <select name= "maxbudget">
+            <option value="Max">Max</option>
+            <option value="20000">20000</option>
+            <option value="30000">30000</option>
+            <option value="40000">40000</option>
+            <option value="50000">50000</option>
+            <option value="60000">60000</option>
+            <option value="70000">70000</option>
+            <option value="80000">80000</option>
+            <option value="90000">90000</option>
+            <option value="100000">100000</option>
+        </select><br/>
+        <label>Sort By</label>
+        <select name= "sortby">
+            <option value="relevance">Relavance</option>
+            <option value="popularity">Popularity</option>
+            <option value="price_asc">Low to High</option>
+            <option value="price_desc">High to Low</option>
+            <option value="recency_desc">Newest First</option>
+        </select><br/>
+        <input type='submit' value='Search'>
+    </form>
+</div>
+<div class="recent-grid">
+    <div class ="Projects">
+        <div class="card">
+            <div class="card-header">
+                <h2>Laptops</h2>
+                <button>See all <span class="las la-arrow-right"></span></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                {% for header in headers %}
+                                    <th>{{header}}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in datas %}
+                            <tr>
+                                <td>{{data.Products}}</td>
+                                <td>{{data.Prices}}</td>
+                                <td>{{data.Ratings}}</td>
+                                <td>{{data.Reviews}}</td>
+                                <td>{{data.Processor}}</td>
+                                <td>{{data.RAM}}</td>
+                                <td>{{data.OS}}</td>
+                                <td><a href="{{data.Link}}" target="_blank">Click here</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

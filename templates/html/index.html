@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Home {% endblock %}
+{% block top %} 
+Home
+{% endblock %}
+{% block active1 %}class="active"{% endblock%}
+{% block content %}
+
+        <h1>Web Scraping Project</h1>
+        <div class="cards">
+            
+                <div class="card-single" onclick="window.location= '/mobiles'">
+                    <div>
+                        <h1>Mobiles</h1>
+                        <span>Click to view more Mobiles</span>
+                    </div>
+                    <div>
+                        <span class="las la-mobile"></span>
+                    </div>
+                </div>
+            <div class="card-single" onclick="window.location= '/laptops'">
+                <div>
+                    <h1>Laptop</h1>
+                    <span>Click to view more Laptops</span>
+                </div>
+                <div>
+                    <span class="las la-laptop"></span>
+                </div>
+            </div>
+            <div class="card-single" onclick="window.location= '/camera'">
+                <div>
+                    <h1>Camera</h1>
+                    <span>Click to view more Cameras</span>
+                </div>
+                <div>
+                    <span class="las la-camera-retro"></span>
+                </div>
+            </div>           
+            <div class="card-single">
+                <div>
+                    <h1>Watches</h1>
+                    <span>Building is under Construction</span>
+                </div>
+                <div>
+                    <span class="lab la-google-wallet"></span>
+                </div>
+            </div>
+        </div>
+        <div class="recent-grid">
+            <div class ="Projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Mobiles</h2>
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        {% for mobheader in mobheaders %}
+                                            <th>{{mobheader}}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for mobile in mobiles %}
+                                    <tr>
+                                        <td>{{mobile.Products}}</td>
+                                        <td>{{mobile.Prices}}</td>
+                                        <td>{{mobile.Ratings}}</td>
+                                        <td>{{mobile.Reviews}}</td>
+                                        <td>{{mobile.Storage}}</td>
+                                        <td>{{mobile.Display}}</td>
+                                        <td>{{mobile.Camera}}</td>
+                                        <td><a href="{{mobile.Link}}" target="_blank">Click here</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="recent-grid">
+            <div class ="Projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Laptops</h2>
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        {% for header in lapheaders %}
+                                            <th>{{header}}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for laptop in laptops %}
+                                    <tr>
+                                        <td>{{laptop.Products}}</td>
+                                        <td>{{laptop.Prices}}</td>
+                                        <td>{{laptop.Ratings}}</td>
+                                        <td>{{laptop.Reviews}}</td>
+                                        <td>{{laptop.Processor}}</td>
+                                        <td>{{laptop.RAM}}</td>
+                                        <td>{{laptop.OS}}</td>
+                                        <td><a href="{{laptop.Link}}" target="_blank">Click here</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="recent-grid">
+            <div class ="Projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Laptops</h2>
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        {% for header in camheaders %}
+                                            <th>{{header}}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for camera in cameras %}
+                                    <tr>
+                                        <td>{{camera.Products}}</td>
+                                        <td>{{camera.Prices}}</td>
+                                        <td>{{camera.Ratings}}</td>
+                                        <td>{{camera.Reviews}}</td>
+                                        <td>{{camera.Pixels}}</td>
+                                        <td>{{camera.Zoom}}</td>
+                                        <td><a href="{{camera.Link}}" target="_blank">Click here</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+{% endblock %}

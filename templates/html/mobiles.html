@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Mobiles {% endblock %}
+{% block top %} 
+Mobiles
+{% endblock %}
+{% block active2 %}class="active"{% endblock%}
+{% block content %}
+
+<div>
+    <form action='/mobiles' method='POST'>
+        <label>Brand name</label>
+        <input type='text' name="brand">
+        <label>RAM</label>
+        <select name= "ramsize">
+            <option value="All">All</option>
+            <option value="6">6 GB & Above</option>
+            <option value="4">4 GB</option>
+            <option value="3">3 GB</option>
+            <option value="2">2 GB</option>
+            <option value="1">1 GB</option>
+        </select><br/>
+        <label>Budget : Min/Max</label>
+        <select name= "minbudget">
+            <option value="Min">Min</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="25000">25000</option>
+        </select>
+        <select name= "maxbudget">
+            <option value="Max">Max</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="25000">25000</option>
+            <option value="30000">30000</option>
+            <option value="35000">35000</option>
+            <option value="40000">40000</option>
+            <option value="45000">45000</option>
+            <option value="50000">50000</option>
+        </select><br/>
+        <label>Sort By</label>
+        <select name= "sortby">
+            <option value="relevance">Relavance</option>
+            <option value="popularity">Popularity</option>
+            <option value="price_asc">Low to High</option>
+            <option value="price_desc">High to Low</option>
+            <option value="recency_desc">Newest First</option>
+        </select><br/>
+        <input type='submit' value='Search'>
+    </form>
+</div>
+<div class="recent-grid">
+    <div class ="Projects">
+        <div class="card">
+            <div class="card-header">
+                <h2>Mobiles</h2>
+                <button>See all <span class="las la-arrow-right"></span></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                {% for header in headers %}
+                                    <th>{{header}}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in datas %}
+                            <tr>
+                                <td>{{data.Products}}</td>
+                                <td>{{data.Prices}}</td>
+                                <td>{{data.Ratings}}</td>
+                                <td>{{data.Reviews}}</td>
+                                <td>{{data.Storage}}</td>
+                                <td>{{data.Display}}</td>
+                                <td>{{data.Camera}}</td>
+                                <td><a href="{{data.Link}}" target="_blank">Click here</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

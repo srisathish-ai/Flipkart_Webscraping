@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Camera {% endblock %}
+
+{% block top %} 
+Camera
+{% endblock %}
+{% block active4 %}class="active"{% endblock%}
+{% block content %}
+
+<div class="recent-grid">
+    <div class ="Projects">
+        <div class="card">
+            <div class="card-header">
+                <h2>Cameras</h2>
+                <button>See all <span class="las la-arrow-right"></span></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                {% for header in headers %}
+                                    <th>{{header}}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in datas %}
+                            <tr>
+                                <td>{{data.Products}}</td>
+                                <td>{{data.Prices}}</td>
+                                <td>{{data.Ratings}}</td>
+                                <td>{{data.Reviews}}</td>
+                                <td>{{data.Pixels}}</td>
+                                <td>{{data.Zoom}}</td>
+                                <td><a href="{{data.Link}}" target="_blank">Click here</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
